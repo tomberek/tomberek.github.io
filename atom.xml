@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Dr. Hakyll's Blog</title>
+    <title>tomberek's Blog</title>
     <link href="/atom.xml" rel="self" />
     <link href="" />
     <id>/atom.xml</id>
     <author>
-        <name>Dr. Hakyll</name>
-        <email>dr-hakyll@dr-hakyll.com</email>
+        <name>tomberek</name>
+        <email>tomberek@gmail.com</email>
     </author>
     <updated>2015-07-15T00:00:00Z</updated>
     <entry>
