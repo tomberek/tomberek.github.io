@@ -1,5 +1,7 @@
 # Tom Hakyll
 
+[![Circle CI](https://circleci.com/gh/tomberek/tomberek.github.io/tree/hakyll.svg?style=svg)](https://circleci.com/gh/tomberek/tomberek.github.io/tree/hakyll)
+
 Used [this configuration](www.stackbuilders.com/news/dr-hakyll-create-a-github-page-with-hakyll-and-circleci) to integrate with CircleCI.
 
 ```
