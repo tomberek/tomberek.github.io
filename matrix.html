@@ -1,0 +1,69 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- original code from ruletheweb.co.uk/matrix.html-->
+<title>Matrix</title>
+<style>*{margin:0;padding:0;line-height:1;overflow:hidden;}div{width:1em;position:absolute;}</style><script>
+w=window;
+n=w.innerWidth;
+m=w.innerHeight;
+d=document;
+q="px";
+var cache = [];
+function z(a,b){return Math.floor(Math.random()*(b-a)+a)}
+f=" 0123456789.!@#$%^&*()`~'[]{}-_=+";   //characters
+for(i=0;i<45;i++)
+    f+=String.fromCharCode(i+65393);
+function g(){
+    for(i=0;i<50;i++){    //number of divs
+        r=d.createElement("div");
+        for(j=z(20,50);j;j--){    //number of characters in stream
+            x=d.createElement("pre");
+            y=d.createTextNode(f[z(0,76)]);  // indexed into characters
+            x.appendChild(y);
+            x.style.opacity=0;
+            r.appendChild(x)}
+        r.id="r"+i;
+        r.t=z(-150,0); //starting ticks
+        rStyle=r.style;
+        rStyle.left=z(0,n)+q;
+        rStyle.top=z(-m/2,m/2)+q; // -m,0
+        size=z(3,7);
+        rStyle.fontSize=size*size+q;
+        d.body.appendChild(r);
+        cache[i]=r;
+        setInterval("u("+i+")",800/size/size )}}  //speed
+function u(j){
+    e=cache[j];
+    c=e.childNodes;
+    cLen=c.length
+    t=e.t+1;
+    if((v=t-cLen-5)>0){  //when to degrade: -50
+        if((e.style.opacity=1-v/16)==0){  //speed to disappear: 32
+            for(item in c)
+                if(c[item].style)
+                    c[item].style.opacity=0;
+            eStyle=e.style
+            eStyle.left=z(0,n)+q;
+            eStyle.top=z(-m/2,m/2)+q;
+            eStyle.opacity=1;
+            t=0}}  // how long to be gone: -50
+    e.t=t;
+    for (i=0;i<1;i++){
+        item=z(0,cLen);
+        c[item].firstChild.nodeValue=f[z(0,76)];
+        c[item].style.opacity=4*c[item].style.opacity;
+    }
+    if(t<0||t>cLen+12){  // if past certain ticks, no stream: cLen+12
+        return;}
+    if(t==cLen)
+        c[t-1].style.color = "green";
+    if (c[t] && j % 4 ==0)
+        c[t].style.color = "white";
+    for(tick=t;tick>t-12&&tick>0&&tick<cLen;tick--){ // degrade stream opacity: 12
+        s=1-(t-tick)/16;  // speed to degrade stream: 16
+        if(tick<cLen) // &&c[tick].style)
+            c[tick].style.opacity=s;}
+    if (c[t-1])
+        c[t-1].style.color = "green";
+}
+</script><body text="#0f0" bgcolor="#000" onload="g()">

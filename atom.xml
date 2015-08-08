@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Dr. Hakyll's Blog</title>
+    <link href="/atom.xml" rel="self" />
+    <link href="" />
+    <id>/atom.xml</id>
+    <author>
+        <name>Dr. Hakyll</name>
+        <email>dr-hakyll@dr-hakyll.com</email>
+    </author>
+    <updated>2015-07-15T00:00:00Z</updated>
+    <entry>
+    <title>Initial Post</title>
+    <link href="/posts/2015-07-15-Initial-Post.html" />
+    <id>/posts/2015-07-15-Initial-Post.html</id>
+    <published>2015-07-15T00:00:00Z</published>
+    <updated>2015-07-15T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="blog-post">
+  <h2 class="blog-post-title">
+    Initial Post
+  </h2>
+  <p class="blog-post-meta">
+    Posted on 2015-07-15
+    
+      by tomberek
+    
+  </p>
+  <p>Initial post using Hakyll. Planned posts:</p>
+<ul>
+<li>Hakyll installation</li>
+<li><a href="https://www.dotcom-monitor.com">dotcom-monitor</a> review</li>
+<li>NixOS</li>
+<li>RiotJS</li>
+<li>Graph library</li>
+</ul>
+</div>
+]]></summary>
+</entry>
+
+</feed>
