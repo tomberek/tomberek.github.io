@@ -1,6 +1,6 @@
 machine:
     ghc:
-        version: 7.10.2
+        version: 7.10.1
     timezone: America/New_York
 dependencies:
     override:
@@ -11,11 +11,12 @@ dependencies:
 test:
     override:
         - cabal build
-post:
-    git submodule init
-    git submodule update
-    cd _site/ && git checkout master
-    cabal run build
+    post:
+        - git submodule init
+        - git submodule foreach git fetch
+        - git submodule update
+        - cd _site/ && git checkout master
+        - cabal run build
 deployment:
     production:
         branch: hakyll
