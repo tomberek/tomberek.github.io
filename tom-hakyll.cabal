@@ -1,9 +1,9 @@
-name:               dr-hakyll
+name:               tom-hakyll
 version:            0.1.0
 build-type:         Simple
 cabal-version:      >= 1.10
 
-executable dr-hakyll
+executable tom-hakyll
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded
