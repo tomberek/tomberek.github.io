@@ -13,7 +13,10 @@ main =
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 
-    match (fromList ["robots.txt" ,"resume/*.pdf"]) $ do
+    match (fromList ["robots.txt"] ) $ do
+      route idRoute
+
+    match "resume/*" $ do
       route idRoute
 
     match "images/*" $ do
