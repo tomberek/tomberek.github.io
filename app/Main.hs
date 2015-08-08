@@ -8,18 +8,11 @@ import Hakyll
 main :: IO ()
 main =
   hakyll $ do
-    match (fromList ["index.html","matrix.html"
-                    ,"editor.html"]) $ do
+    match (fromList ["*.html","resume/*.html"]) $ do
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 
-    match (fromList ["robots.txt"] ) $ do
-      route idRoute
-
-    match "resume/*" $ do
-      route idRoute
-
-    match "images/*" $ do
+    match ("robots.txt" .||. "images/*" .||. "resume/*") $ do
       route idRoute
       compile copyFileCompiler
 
