@@ -10,3 +10,6 @@ Initial post using Hakyll. Planned posts:
 * NixOS
 * RiotJS
 * Graph library
+* SPDY
+* Preload
+* Locally host files
