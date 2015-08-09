@@ -19,6 +19,9 @@ h6, .h6 {
   color: #333;
 }
 
+img { 
+  padding:1px;
+  border:1px solid #021a40;}
 
 /*
  * Override Bootstrap's default container.

@@ -1,4 +1,4 @@
-# Tom Hakyll
+# Tom's Hakyll
 
 [![Circle CI](https://circleci.com/gh/tomberek/tomberek.github.io/tree/hakyll.svg?style=svg)](https://circleci.com/gh/tomberek/tomberek.github.io/tree/hakyll)
 

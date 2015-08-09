@@ -4,15 +4,16 @@ module Main (main) where
 
 import Data.Monoid (mappend)
 import Hakyll
+import Text.Pandoc.Options
 
 main :: IO ()
 main =
   hakyll $ do
-    match (fromList ["*.html","resume/*.html"]) $ do
+    match (fromList ["index.html","*.html","resume/*.html"]) $ do
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 
-    match ("robots.txt" .||. "images/*" .||. "resume/*") $ do
+    match ("robots.txt" .||. "images/**" .||. "resume/*") $ do
       route idRoute
       compile copyFileCompiler
 
@@ -28,7 +29,7 @@ main =
 
     match "posts/*" $ do
       route (setExtension "html")
-      compile $ pandocCompiler
+      compile $ pandocCompilerWithTOC
         >>= loadAndApplyTemplate "templates/post.html" postContext
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/default.html" postContext
@@ -77,6 +78,29 @@ main =
         posts <- fmap (take 10) . recentFirst
                    =<< loadAllSnapshots "posts/*" "content"
         renderRss feedConfiguration feedContext posts
+
+pandocCompilerWithTOC = do 
+      ident <- getUnderlying 
+      toc    <- getMetadataField ident "toc" 
+      let writerSettings = case toc of 
+                                Just "yes"  -> myWriterOptionsToc 
+                                Nothing     -> myWriterOptions 
+      pandocCompilerWith defaultHakyllReaderOptions writerSettings 
+
+myWriterOptions :: WriterOptions 
+myWriterOptions = defaultHakyllWriterOptions { 
+      writerReferenceLinks = True 
+    , writerHtml5 = True 
+    , writerHighlight = True 
+    } 
+
+myWriterOptionsToc :: WriterOptions 
+myWriterOptionsToc = myWriterOptions { 
+      writerTableOfContents = True 
+    , writerTOCDepth = 2 
+    , writerTemplate = "$if(toc)$<div id=\"toc\">$toc$</div>$endif$\n$body$" 
+    , writerStandalone = True 
+    } 
 
 feedContext :: Context String
 feedContext =
