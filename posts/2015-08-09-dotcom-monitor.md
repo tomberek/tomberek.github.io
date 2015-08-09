@@ -66,11 +66,11 @@ This was a lot more fun. It had the same UI annoyances as the Ping Test, but the
 
 ![](/images/2015-08-08/website-speed.png)
 
-The results seems useful, but as a competitor, I have found [www.webpagetest.org]() to be more configurable, though it only tests from a single location. Both made me notice that I had significant SSL Handshake time. I use a 4096 bit RSA key; probably overkill. Sadly StartSSL doesn't provide ECDSA certs. Please contact me if anyone knows where one can get free signed ECDSA certificates.
+The results seems useful, but as a competitor, I have found [www.webpagetest.org](www.webpagetest.org) to be more configurable, though it only tests from a single location. Both made me notice that I had significant SSL Handshake time. I use a 4096 bit RSA key; probably overkill. Sadly StartSSL doesn't provide ECDSA certs. Please contact me if anyone knows where one can get free signed ECDSA certificates.
 
 # DNS Tool
 
-Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-monitor/dns-monitoring/]()  and got a `Server Error in '/' Application.` at [https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp](). Hm......
+Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-monitor/dns-monitoring/](https://www.dotcom-monitor.com/server-monitor/dns-monitoring/)  and got a `Server Error in '/' Application.` at [https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp](https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp). Hm......
 
 ![](/images/2015-08-08/error.png)
 
@@ -78,5 +78,5 @@ Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-mon
 
 I will look at other portions of the site as I have time.
 The monitoring services could be very intersting.
-So far the primary advantage [www.dotcom-tools.com]() seems to be the global testing from diverse locations.
+So far the primary advantage [www.dotcom-tools.com](www.dotcom-tools.com) seems to be the global testing from diverse locations.
 UI could use some work.
