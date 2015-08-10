@@ -13,13 +13,14 @@ main =
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 
-    match ("robots.txt" .||. "images/**" .||. "resume/*") $ do
+    match ("robots.txt" .||. "keybase.txt" .||. "images/**" .||. "resume/*") $ do
       route idRoute
       compile copyFileCompiler
 
     match "js/*" $ do
       route idRoute
-      
+      compile copyFileCompiler
+
     match "css/*" $ do
       route idRoute
       compile compressCssCompiler
@@ -82,28 +83,28 @@ main =
                    =<< loadAllSnapshots "posts/*" "content"
         renderRss feedConfiguration feedContext posts
 
-pandocCompilerWithTOC = do 
-      ident <- getUnderlying 
-      toc    <- getMetadataField ident "toc" 
-      let writerSettings = case toc of 
-                                Just "yes"  -> myWriterOptionsToc 
-                                Nothing     -> myWriterOptions 
-      pandocCompilerWith defaultHakyllReaderOptions writerSettings 
+pandocCompilerWithTOC = do
+      ident <- getUnderlying
+      toc    <- getMetadataField ident "toc"
+      let writerSettings = case toc of
+                                Just "yes"  -> myWriterOptionsToc
+                                Nothing     -> myWriterOptions
+      pandocCompilerWith defaultHakyllReaderOptions writerSettings
 
-myWriterOptions :: WriterOptions 
-myWriterOptions = defaultHakyllWriterOptions { 
-      writerReferenceLinks = True 
-    , writerHtml5 = True 
-    , writerHighlight = True 
-    } 
+myWriterOptions :: WriterOptions
+myWriterOptions = defaultHakyllWriterOptions {
+      writerReferenceLinks = True
+    , writerHtml5 = True
+    , writerHighlight = True
+    }
 
-myWriterOptionsToc :: WriterOptions 
-myWriterOptionsToc = myWriterOptions { 
-      writerTableOfContents = True 
-    , writerTOCDepth = 2 
-    , writerTemplate = "$if(toc)$<div id=\"toc\">$toc$</div>$endif$\n$body$" 
-    , writerStandalone = True 
-    } 
+myWriterOptionsToc :: WriterOptions
+myWriterOptionsToc = myWriterOptions {
+      writerTableOfContents = True
+    , writerTOCDepth = 2
+    , writerTemplate = "$if(toc)$<div id=\"toc\">$toc$</div>$endif$\n$body$"
+    , writerStandalone = True
+    }
 
 feedContext :: Context String
 feedContext =
