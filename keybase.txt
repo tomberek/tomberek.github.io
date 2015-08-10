@@ -1,0 +1,77 @@
+==================================================================
+https://keybase.io/tomberek
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tomberek.info
+  * I am tomberek (https://keybase.io/tomberek) on keybase.
+  * I have a public key with fingerprint 8718 4F1C A00E AF3A 38E9  5DF8 E4DD 675E CF1D C4FC
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.8.16"
+        },
+        "key": {
+            "eldest_kid": "010190b6a8c2808e73434b371261b28b8a56dc9d82883588f59a90853ba86331c9ad0a",
+            "fingerprint": "87184f1ca00eaf3a38e95df8e4dd675ecf1dc4fc",
+            "host": "keybase.io",
+            "key_id": "e4dd675ecf1dc4fc",
+            "kid": "010190b6a8c2808e73434b371261b28b8a56dc9d82883588f59a90853ba86331c9ad0a",
+            "uid": "59560979d56512db2810a86e39233300",
+            "username": "tomberek"
+        },
+        "service": {
+            "hostname": "tomberek.info",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1438678304,
+    "expire_in": 157680000,
+    "prev": "3ee0f0ece8f8534cc0a7c240ebcadb39c9ecb8ef385b4680f12482271124dbec",
+    "seqno": 19,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owGtkntQFVUcxy9oxFNIJ3McKVqUHMPrvvcsajOgTAViU6LEYNz2cfbelcte2F3e
+kqlMhePIw5TCgmxMRw3RCmbACuRhEgpqA1g8BhoGYjCs0JsYedtl6I+a/uz8c86c
+8/l9z/f3Pac0aIHF12t00J7aHdo269U5wVu2NxeGFSC8S8xDogoQwSlDRTdXCpcO
+kSgkDebxnAatsitMcYnQuksLm2cikWyoarJLMSjUCqwYjRRGmrxZDZ0i1HRbmiya
+pxiKsShPc0DAAQogQ5AEyRMMhtMYjwMecBQtCqwIcAAICgCJYjkWBRTBc4AmCExg
+ORHljAslWbFDNUOVTYsIYDBASpjAoSjkJIIjAGQpUQKQFEWaoaAgYaJASoJR6HBp
++j+aQeac2ubs/Qf/P/vOmpOjWIpGWYYVKZrCcNFQwFADhASLEwSBoiaoQXU+eN2V
+zkMVppmhGrvZsgDNYM1O/kVYZUUyG8pQXbpLcDmNI4euZ2hRZqmel2GyOZC3zavY
+eFkRjSDnHrBy/gUxAxV02dTFSALQDCBQMhKBuRmyCm2ySVAMDVBjmBfBbEOTgBCV
+UChAIBk9k4KAcoyAkyjkBU7kCVZgocADKBGA4kmjVsJwEuA4gxmzyEMzZw1mKi5D
+mzWMcnZDU5PtCqdnqRApLPZesdDi5WvxecTb/KMWf7+Qvz9unBrs0f2KS5rebNmQ
+4Ihpq/3NerpfCtBPDVHYlbrsLerpjviZiN4zqUNlY6tX6d2N/S1l7a0p9sJrEQkP
+Vt8Z6YzdWZ7EbLu8ezLs3EyPbXukGN4HKj/y7Hg0IZfs3Fee1Ham8cPYiZUnqsbZ
+Q0HnOwIHzic4Y254dk3MlCl22mcpmA19W+UWVYGglpQmvNFdDEq7eqOZvS+GPPfw
+UvxX7RF5P2dxv6hvDO0Iee/UkT3+Z/umy49uCf4p5JuG5tzNvy5+t+bLk+6a7Mx3
+bsvDY94ONVdZljV2M7CqUivaFv3D8ticDrAmdOOxcIdcKd3/I8ld+/B+XODdPQGO
++JwDAdOtJesOrNEvj24ilqZ3/H5ha/PX48RTntrx5+XclO8vbqq7l/jAMxD3bcER
+m9K3EbsaLtT5pyJTL62o8HOujHrNt99LK/vzbv7x95OKtl5ZeNBnd+b0wM3HlCXH
+vlh7OP9w9Qv1sr9ntrvnc0tFw4nr9cnUj9cWDJbEdnXeWvRdbQjHdBEON9vjftzZ
+7p4Z/tSqXOdKNq8boXxGji/rwsbtZ20v+9U9mVh5ezC5+lWsKBp8XPJM79TJ9dUH
+L/S2nUu2xww/3eMc2/mss2IysaI6eO+SzvxP6gI25CmpTU/cO7q+MGVtK55ZX9VQ
+Vloz9dmixVrfnf6Uqx/sn7wVu2//Ky2vj16iL761arl84y8=
+=601z
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tomberek
+
+==================================================================
