@@ -26,7 +26,7 @@ for (i=0, link_tag= document.getElementsByTagName("link");
         button.setAttribute("type","submit");
         button.setAttribute("onclick","switch_style('"+link_tag[i].title+"');return false;");
         button.setAttribute("name","theme");
-        button.setAttribute("value",link_tag[i].title+" Theme");
+        button.setAttribute("value",link_tag[i].title);
         button.setAttribute("id",link_tag[i].title);
         form.appendChild(document.createTextNode(" "));
         form.appendChild(button);
