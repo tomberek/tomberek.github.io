@@ -13,7 +13,7 @@ main =
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 
-    match ("robots.txt" .||. "keybase.txt" .||. "images/**" .||. "resume/*") $ do
+    match ("googleefc9de7add097f6e.html" .||. "editr/**" .||. "robots.txt" .||. "keybase.txt" .||. "images/**" .||. "resume/*") $ do
       route idRoute
       compile copyFileCompiler
 
