@@ -38,7 +38,7 @@
 <h2 id="are-you-human">ARE YOU HUMAN?</h2>
 <p>Next up, the “ARE YOU HUMAN” check was confusing. Perhaps I am just slow. I saw “five-four” and typed in: <code>54</code>. Wrong. <code>5-4</code>. Wrong. Refresh. Now I see “4+3”. Oh, it wants me to do math. <code>7</code>. Success! Wow, I’d be done with a manual ping check by now.</p>
 <figure>
-<img src="/images/2015-08-08/ping-test.png" alt="" />
+<img src="/images/2015-08-08/ping-test.png" />
 </figure>
 <p>Initial entry requires a mouse. Suggest using the <code>autofocus</code> <a href="http://www.w3schools.com/tags/att_input_autofocus.asp">HTML5 attribute</a>. Pressing <code>ENTER</code> after entering the domain does nothing. Hitting tab after entering an IP or domain goes to:</p>
 <ol type="1">
@@ -52,7 +52,7 @@
 <h2 id="the-test">The test</h2>
 <p>Now we’re in business. There is a popup asking us to automate pings as a way to perform health checks. This only shows up on the first use of the tool. Nevertheless, this seems a bit agressive. Simply provide the service and an unobtrusive way to learn about and sign up for the service. This just gets frustrating and will push people away from the site.</p>
 <figure>
-<img src="/images/2015-08-08/popup.png" alt="" />
+<img src="/images/2015-08-08/popup.png" />
 </figure>
 <p>After hitting “SKIP” we can see the results. Good distribution of locations, though very little detail on each one. Error descriptions are generic, though usable. Some users may want to actually click on the test and see the raw output. They may want to know how many packets were lost, what IP DNS resolved to, source IP, etc.</p>
 <h2 id="overall">Overall</h2>
@@ -61,13 +61,13 @@
 <h1 id="website-speed-test">Website Speed Test</h1>
 <p>Next I looked at the <a href="https://www.dotcom-tools.com/website-speed-test.aspx">website speed test</a>. This was a lot more fun. It had the same UI annoyances as the Ping Test, but the results seemed much more useful. You quickly get load times from around the world and some basic metrics. There also seems to be a caching effect for DNS; so the first request may be quite a bit different than subsequent effects.</p>
 <figure>
-<img src="/images/2015-08-08/website-speed.png" alt="" />
+<img src="/images/2015-08-08/website-speed.png" />
 </figure>
 <p>The results seems useful, but as a competitor, I have found <a href="www.webpagetest.org" class="uri">www.webpagetest.org</a> to be more configurable, though it only tests from a single location. Both made me notice that I had significant SSL Handshake time. I use a 4096 bit RSA key; probably overkill. Sadly StartSSL doesn’t provide ECDSA certs. Please contact me if anyone knows where one can get free signed ECDSA certificates.</p>
 <h1 id="dns-tool">DNS Tool</h1>
 <p>Clicked on the “TRY IT NOW” button at <a href="https://www.dotcom-monitor.com/server-monitor/dns-monitoring/" class="uri">https://www.dotcom-monitor.com/server-monitor/dns-monitoring/</a> and got a <code>Server Error in '/' Application.</code> at <a href="https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp" class="uri">https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp</a>. Hm……</p>
 <figure>
-<img src="/images/2015-08-08/error.png" alt="" />
+<img src="/images/2015-08-08/error.png" />
 </figure>
 <h1 id="end-of-the-day">End of the day</h1>
 <p>I will look at other portions of the site as I have time. The monitoring services could be very intersting. So far the primary advantage <a href="www.dotcom-tools.com" class="uri">www.dotcom-tools.com</a> seems to be the global testing from diverse locations. UI could use some work.</p>
