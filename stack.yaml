@@ -2,4 +2,4 @@ flags: {}
 packages:
 - '.'
 extra-deps: []
-resolver: nightly-2015-08-04
+resolver: lts-4.2
