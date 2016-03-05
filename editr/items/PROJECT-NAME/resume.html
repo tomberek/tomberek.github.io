@@ -2,40 +2,18 @@
 <html lang="en">
 <head>
     <title>Bereknyei Resume</title>
-    <link title="default" rel="stylesheet" href="resume.css">
-    <link title="github" rel="alternate stylesheet" href="github-markdown.css">
-    <link title="markdown" rel="alternate stylesheet" href="markdown.css">
-    <link title="trimmed" rel="alternate stylesheet" href="resume2.css">
-    <script type='text/javascript'>
-function switch_style ( css_title )
-{
-// You may use this script on your site free of charge provided
-// you do not remove this notice or the URL below. Script from
-// http://www.thesitewizard.com/javascripts/change-style-sheets.shtml
-  var i, link_tag ;
-  for (i = 0, link_tag = document.getElementsByTagName("link") ;
-    i < link_tag.length ; i++ ) {
-    if ((link_tag[i].rel.indexOf( "stylesheet" ) != -1) &&
-      link_tag[i].title) {
-      link_tag[i].disabled = true ;
-      if (link_tag[i].title == css_title) {
-        link_tag[i].disabled = false ;
-      }
-    }
-  }
-}
-</script>
+    <link title="default" rel="stylesheet" href="/css/resume.css">
+    <link title="2_pages" rel="alternate stylesheet" href="/css/resume2.css">
+    <link title="github" rel="alternate stylesheet" href="/css/github-markdown.css">
+    <link title="markdown" rel="alternate stylesheet" href="/css/markdown.css">
+    <link title="tacit" rel="alternate stylesheet" href="/css/tacit.css">
+    <link title="base" rel="alternate stylesheet" href="/css/base.css">
    <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=.6, width=device-width" />
 </head>
 <body class="markdown-body">
     <header>
-        <form>
-<input type="submit" onclick="switch_style('default');return false;" name="theme" value="Default Theme" id="default">
-<input type="submit" onclick="switch_style('markdown');return false;" name="theme" value="Markdown Theme" id="markdown">
-<input type="submit" onclick="switch_style('github');return false;" name="theme" value="Github Theme" id="github">
-<input type="submit" onclick="switch_style('trimmed');return false;" name="theme" value="2-Page Theme" id="trimmed">
-</form>
+        <form id="buttons"></form>
         <section>
             <address>
                 <h3>Contact</h3>
@@ -153,7 +131,7 @@ function switch_style ( css_title )
         <ul>
           <li><a href="https://github.com/tomberek">https://github.com/tomberek</a></li>
           <li><a href="https://keybase.io/tomberek">https://keybase.io/tomberek</a></li>
-          <li><a href="https://tomberek.info/resume.html">https://tomberek.info/resume.html</a></li>
+          <li><a href="/resume/index.html">https://tomberek.info/resume/index.html</a></li>
         </ul>
     </section>
     <section>
@@ -177,12 +155,12 @@ function switch_style ( css_title )
           </section>
           <section>
               <br>
-              <h3>CISSP <img src="CISSP-logo-2lines.png" height="60"> <time>2015</time>
+              <h3>CISSP <img src="/images/CISSP-logo-2lines.png" height="60"> <time>2015</time>
               </h3>
           </section>
           <section>
               <br>
-              <h3>CEH <img src="CEH.png" height="60"> <time>2013</time>
+              <h3>CEH <img src="/images/CEH.png" height="60"> <time>2013</time>
               </h3>
           </section>
     </section>
@@ -237,9 +215,6 @@ function switch_style ( css_title )
         </ul>
     </section>
   </aside>
+<script type='text/javascript' src="/js/themer.js"></script>
 </body>
-    <!-- <script type='text/javascript' src="jspdf/jspdf.plugin.from_html.js"> -->
-    <!-- <script type='text/javascript' src="jspdf/jspdf.plugin.split_text_to_size.js"> -->
-    <!-- <script type='text/javascript' src="jspdf/jspdf.plugin.standard_fonts_metrics.js"> -->
-
 </html>
