@@ -23,7 +23,7 @@ Wrong. `5-4`. Wrong. Refresh. Now I see "4+3".
 Oh, it wants me to do math. `7`. Success!
 Wow, I'd be done with a manual ping check by now.
 
-![](/images/2015-08-08/ping-test.png)
+<amp-img src="/images/2015-08-08/ping-test.png" alt="Ping Test" width="671px" height="370px" sizes="(min-width:800px) 60vw, 90vw"/>
 
 Initial entry requires a mouse. Suggest using the `autofocus` [HTML5 attribute](http://www.w3schools.com/tags/att_input_autofocus.asp). Pressing `ENTER` after entering the domain does nothing. Hitting tab after entering an IP or domain goes to:
 
@@ -43,7 +43,7 @@ Now we're in business. There is a popup asking us to automate pings as a way to 
 Nevertheless, this seems a bit agressive. Simply provide the service and an unobtrusive way to learn about and sign up for the service.
 This just gets frustrating and will push people away from the site.
 
-![](/images/2015-08-08/popup.png)
+<amp-img src="/images/2015-08-08/popup.png" alt="Ping Test" width="702px" height="596px" sizes="(min-width:800px) 60vw, 90vw"/>
 
 After hitting "SKIP" we can see the results. Good distribution of locations, though very little detail on each one.
 Error descriptions are generic, though usable. Some users may want to actually click on the test and see the raw output. They may want to know how many packets were lost, what IP DNS resolved to, source IP, etc.
@@ -64,7 +64,7 @@ The scrollbar is slugish in its attempt to be "fluid". It seems to use a jquery 
 Next I looked at the [website speed test](https://www.dotcom-tools.com/website-speed-test.aspx).
 This was a lot more fun. It had the same UI annoyances as the Ping Test, but the results seemed much more useful. You quickly get load times from around the world and some basic metrics. There also seems to be a caching effect for DNS; so the first request may be quite a bit different than subsequent effects.
 
-![](/images/2015-08-08/website-speed.png)
+<amp-img src="/images/2015-08-08/website-speed.png" alt="Ping Test" width="870px" height="386px" sizes="(min-width:800px) 60vw, 90vw"/>
 
 The results seems useful, but as a competitor, I have found [www.webpagetest.org](www.webpagetest.org) to be more configurable, though it only tests from a single location. Both made me notice that I had significant SSL Handshake time. I use a 4096 bit RSA key; probably overkill. Sadly StartSSL doesn't provide ECDSA certs. Please contact me if anyone knows where one can get free signed ECDSA certificates.
 
@@ -72,7 +72,7 @@ The results seems useful, but as a competitor, I have found [www.webpagetest.org
 
 Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-monitor/dns-monitoring/](https://www.dotcom-monitor.com/server-monitor/dns-monitoring/)  and got a `Server Error in '/' Application.` at [https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp](https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp). Hm......
 
-![](/images/2015-08-08/error.png)
+<amp-img src="/images/2015-08-08/error.png" alt="Ping Test" width="870px" height="149px" sizes="(min-width:800px) 60vw, 90vw"/>
 
 # End of the day
 

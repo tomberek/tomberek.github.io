@@ -9,7 +9,7 @@ import Text.Pandoc.Options
 main :: IO ()
 main =
   hakyll $ do
-    match (fromList ["index.html","*.html","resume/*.html"]) $ do
+    match (fromList ["*.html","resume/*.html"]) $ do
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 
@@ -25,7 +25,7 @@ main =
       route idRoute
       compile compressCssCompiler
 
-    match (fromList ["about.md", "contact.md"]) $ do
+    match (fromList ["about.md", "contact.md", "index.md"]) $ do
       route (setExtension "html")
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
@@ -59,7 +59,7 @@ main =
         posts <- recentFirst =<< loadAll "posts/*"
         let indexContext =
               listField "posts" postContext (return posts) `mappend`
-              constField "title" "Home" `mappend`
+              constField "title" "Blog" `mappend`
               defaultContext
 
         getResourceBody
