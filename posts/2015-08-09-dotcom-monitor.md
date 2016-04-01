@@ -66,7 +66,7 @@ This was a lot more fun. It had the same UI annoyances as the Ping Test, but the
 
 <amp-img src="/images/2015-08-08/website-speed.png" alt="Ping Test" width="870px" height="386px" sizes="(min-width:800px) 60vw, 90vw"/>
 
-The results seems useful, but as a competitor, I have found [www.webpagetest.org](www.webpagetest.org) to be more configurable, though it only tests from a single location. Both made me notice that I had significant SSL Handshake time. I use a 4096 bit RSA key; probably overkill. Sadly StartSSL doesn't provide ECDSA certs. Please contact me if anyone knows where one can get free signed ECDSA certificates.
+The results seems useful, but as a competitor, I have found [www.webpagetest.org](https://www.webpagetest.org) to be more configurable, though it only tests from a single location. Both made me notice that I had significant SSL Handshake time. I use a 4096 bit RSA key; probably overkill. Sadly StartSSL doesn't provide ECDSA certs. Please contact me if anyone knows where one can get free signed ECDSA certificates.
 
 # DNS Tool
 
@@ -78,5 +78,5 @@ Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-mon
 
 I will look at other portions of the site as I have time.
 The monitoring services could be very intersting.
-So far the primary advantage [www.dotcom-tools.com](www.dotcom-tools.com) seems to be the global testing from diverse locations.
+So far the primary advantage [www.dotcom-tools.com](https://www.dotcom-tools.com) seems to be the global testing from diverse locations.
 UI could use some work.
