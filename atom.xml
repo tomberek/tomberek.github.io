@@ -8,8 +8,61 @@
         <name>tomberek</name>
         <email>tomberek@gmail.com</email>
     </author>
-    <updated>2015-08-09T00:00:00Z</updated>
+    <updated>2016-04-10T00:00:00Z</updated>
     <entry>
+    <title>RETE Project Part 1</title>
+    <link href="/posts/RETE/2016-04-10-RETE-Project.html" />
+    <id>/posts/RETE/2016-04-10-RETE-Project.html</id>
+    <published>2016-04-10T00:00:00Z</published>
+    <updated>2016-04-10T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<h1>
+  RETE Project Part 1
+</h1>
+<p>
+  Posted on 2016-04-10
+  
+    by tomberek
+  
+  <br>
+  Tags: <a href="/tags/RETE.html">RETE</a>, <a href="/tags/OPS5.html">OPS5</a>, <a href="/tags/rules.html">rules</a>, <a href="/tags/rewriting.html">rewriting</a>
+  <br>
+  Category: <a href="/categories/RETE.html">RETE</a>
+</p>
+<div id="toc"><h2>Table of Contents</h2><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-plan">The Plan</a><ul>
+<li><a href="#ops5">OPS5</a></li>
+<li><a href="#rules">Rules</a></li>
+<li><a href="#rete">RETE</a></li>
+<li><a href="#leaps">LEAPS</a></li>
+<li><a href="#another">Another?</a></li>
+<li><a href="#haskell-rules-framework">Haskell Rules Framework</a></li>
+<li><a href="#section">???</a></li>
+<li><a href="#profit">Profit</a></li>
+</ul></li>
+</ul></div>
+<h1 id="introduction">Introduction</h1>
+<p>This sequence will look at the implementation of the <a href="https://en.wikipedia.org/wiki/Rete_algorithm">RETE algorithm</a>. RETE is a pattern matching algorithm that is optimized by reusing partial matches. The motivation for this project is to bring optimized rule matching to Haskell.</p>
+<h1 id="the-plan">The Plan</h1>
+<p>(will be edited throughout project)</p>
+<h2 id="ops5">OPS5</h2>
+<p>Implement an <a href="http://repository.cmu.edu/cgi/viewcontent.cgi?article=3430&amp;context=compsci">OPS5</a> DSL. A good <a href="http://www.cs.gordon.edu/local/courses/cs323/OPS5/ops5.html">manual</a>. Currently learning and using <a href="https://hackage.haskell.org/package/compdata-0.10">compdata</a> - <a href="http://www.diku.dk/~paba/pubs/files/bahr11wgp-paper.pdf">paper</a>. Perhaps <a href="https://hackage.haskell.org/package/compdata-param">compdata-param</a> - <a href="http://arxiv.org/pdf/1202.2917.pdf">paper</a>.</p>
+<p>Should we just use a <a href="http://bnfc.digitalgrammars.com/">BNF converter</a>? Almost <a href="https://gist.github.com/krodelin/9853a5bbfcac76592b2a">a BNF expression</a>.</p>
+<h2 id="rules">Rules</h2>
+<p>Use <a href="https://hackage.haskell.org/package/ho-rewriting-0.2">ho-rewriting</a> - <a href="http://www.cse.chalmers.se/~emax/documents/axelsson2015lightweight.pdf">paper</a> or <a href="http://takeichi.ipl-lab.org/yicho/">Yicho</a></p>
+<h2 id="rete">RETE</h2>
+<p>There are various implementations that may be of interest; <a href="http://www.csl.sri.com/users/mwfong/Technical/RETE%20Match%20Algorithm%20-%20Forgy%20OCR.pdf">RETE</a> and <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.96.5371&amp;rep=rep1&amp;type=pdf">LEAPS</a>.</p>
+<h2 id="leaps">LEAPS</h2>
+<h2 id="another">Another?</h2>
+<p><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.56.6958&amp;rep=rep1&amp;type=pdf">Venus</a></p>
+<h2 id="haskell-rules-framework">Haskell Rules Framework</h2>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="st">&quot;hi&quot;</span></code></pre></div>
+<h2 id="section">???</h2>
+<h2 id="profit">Profit</h2>
+]]></summary>
+</entry>
+<entry>
     <title>dotcom-monitor review</title>
     <link href="/posts/2015-08-09-dotcom-monitor.html" />
     <id>/posts/2015-08-09-dotcom-monitor.html</id>
@@ -23,8 +76,12 @@
   
     by tomberek
   
+  <br>
+  Tags: <a href="/tags/devops.html">devops</a>
+  <br>
+  Category: <a href="/categories/posts.html">posts</a>
 </p>
-<div id="toc"><ul>
+<div id="toc"><h2>Table of Contents</h2><ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#ping-test">Ping Test</a><ul>
 <li><a href="#are-you-human">ARE YOU HUMAN?</a></li>
@@ -83,6 +140,10 @@
   
     by tomberek
   
+  <br>
+  Tags: <a href="/tags/initial.html">initial</a>
+  <br>
+  Category: <a href="/categories/posts.html">posts</a>
 </p>
 <p>Initial post using Hakyll. Planned posts:</p>
 <ul>

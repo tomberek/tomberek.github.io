@@ -19,11 +19,18 @@ input,textarea,select,button,html,body{font-family:"Helvetica Neue",Helvetica,Ar
       figure>img {max-width:100%;height:auto;}
       main {display:flex;flex-direction:row;justify-content:center;}
       article {flex:4;}
-      nav h1 {display:inline;}
-      main>nav {flex:1;display:flex;flex-direction:column;}
+      nav {display:inline;}
+      main>nav {padding:1em;flex:1;display:flex;flex-direction:column;}
       main article>div {display:flex;flex-direction:row;}
       main article>div>div {padding:1em;}
-
+      #toc {
+        display:block;
+        float: right;
+        width: 40%;
+        background: #eee;
+        padding: 1em;
+      }
+      table.sourceCode,table.sourceCode pre,td.lineNumbers,td.sourceCode,tr.sourceCode{margin:0;padding:0;vertical-align:baseline;border:none}td.lineNumbers,td.sourceCode{padding-left:5px}td.lineNumbers{border-right:1px solid #AAA;text-align:right;color:#AAA;padding-right:5px}.sourceCode span.kw{color:#007020;font-weight:700}.sourceCode span.dt{color:#902000}.sourceCode span.bn,.sourceCode span.dv,.sourceCode span.fl{color:#40a070}.sourceCode span.ch,.sourceCode span.st{color:#4070a0}.sourceCode span.co{color:#60a0b0;font-style:italic}.sourceCode span.ot{color:#007020}.sourceCode span.al{color:red;font-weight:700}.sourceCode span.fu{color:#06287e}.sourceCode span.er{color:red;font-weight:700}
       @media screen and (max-width:400px) {
         main nav {display:none;}
         article {flex: 0 1 100%;}
@@ -49,6 +56,10 @@ input,textarea,select,button,html,body{font-family:"Helvetica Neue",Helvetica,Ar
   
     by tomberek
   
+  <br>
+  Tags: <a href="../tags/initial.html">initial</a>
+  <br>
+  Category: <a href="../categories/posts.html">posts</a>
 </p>
 <p>Initial post using Hakyll. Planned posts:</p>
 <ul>
