@@ -2,6 +2,7 @@
 title: dotcom-monitor review
 author: tomberek
 toc: yes
+tags: devops
 ---
 
 # Introduction

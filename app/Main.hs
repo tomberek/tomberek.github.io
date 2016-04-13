@@ -31,18 +31,36 @@ main =
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
 
-    match "posts/*" $ do
+    tags <- buildTags "posts/**" (fromCapture "tags/*.html")
+    categories <- buildCategories "posts/**" (fromCapture "categories/*.html")
+    let tagsRules' t s = tagsRules t $ \tag pattern -> do
+            let title = s ++ " \"" ++ tag ++ "\""
+            route idRoute
+            compile $ do
+                posts <- recentFirst =<< loadAll pattern
+                let ctx = constField "title" title
+                          `mappend` listField "posts" postContext (return posts)
+                          `mappend` defaultContext
+    
+                makeItem ""
+                    >>= loadAndApplyTemplate "templates/tag.html" ctx
+                    >>= loadAndApplyTemplate "templates/default.html" ctx
+                    >>= relativizeUrls
+    tagsRules' categories "Posts in category"
+    tagsRules' tags "Posts tagged"
+
+    match "posts/**" $ do
       route (setExtension "html")
       compile $ pandocCompilerWithTOC
-        >>= loadAndApplyTemplate "templates/post.html" postContext
+        >>= loadAndApplyTemplate "templates/post.html" (postCtxWithTags tags categories)
         >>= saveSnapshot "content"
-        >>= loadAndApplyTemplate "templates/default.html" postContext
+        >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags categories)
         >>= relativizeUrls
 
     create ["archive.html"] $ do
       route idRoute
       compile $ do
-        posts <- recentFirst =<< loadAll "posts/*"
+        posts <- recentFirst =<< loadAll "posts/**"
         let archiveContext =
               listField "posts" postContext (return posts) `mappend`
               constField "title" "Archives" `mappend`
@@ -56,7 +74,7 @@ main =
     match "blog.html" $ do
       route idRoute
       compile $ do
-        posts <- recentFirst =<< loadAll "posts/*"
+        posts <- recentFirst =<< loadAll "posts/**"
         let indexContext =
               listField "posts" postContext (return posts) `mappend`
               constField "title" "Blog" `mappend`
@@ -73,14 +91,14 @@ main =
       route idRoute
       compile $ do
         posts <- fmap (take 10) . recentFirst
-                   =<< loadAllSnapshots "posts/*" "content"
+                   =<< loadAllSnapshots "posts/**" "content"
         renderAtom feedConfiguration feedContext posts
 
     create ["rss.xml"] $ do
       route idRoute
       compile $ do
         posts <- fmap (take 10) . recentFirst
-                   =<< loadAllSnapshots "posts/*" "content"
+                   =<< loadAllSnapshots "posts/**" "content"
         renderRss feedConfiguration feedContext posts
 
 pandocCompilerWithTOC = do
@@ -90,6 +108,11 @@ pandocCompilerWithTOC = do
                                 Just "yes"  -> myWriterOptionsToc
                                 Nothing     -> myWriterOptions
       pandocCompilerWith defaultHakyllReaderOptions writerSettings
+
+postCtxWithTags :: Tags -> Tags -> Context String
+postCtxWithTags tags categories = tagsField "tags" tags
+                      `mappend` categoryField "categories" categories
+                      `mappend` postContext
 
 myWriterOptions :: WriterOptions
 myWriterOptions = defaultHakyllWriterOptions {
@@ -102,7 +125,7 @@ myWriterOptionsToc :: WriterOptions
 myWriterOptionsToc = myWriterOptions {
       writerTableOfContents = True
     , writerTOCDepth = 2
-    , writerTemplate = "$if(toc)$<div id=\"toc\">$toc$</div>$endif$\n$body$"
+    , writerTemplate = "$if(toc)$<div id=\"toc\"><h2>Table of Contents</h2>$toc$</div>$endif$\n$body$"
     , writerStandalone = True
     }
 

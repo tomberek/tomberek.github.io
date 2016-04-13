@@ -1,6 +1,7 @@
 ---
 title: Initial Post
 author: tomberek
+tags: initial
 ---
 
 Initial post using Hakyll. Planned posts:

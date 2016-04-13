@@ -11,7 +11,7 @@ This is used mainly for bookmarks, tools, links, and for a quick server or proxi
 ## Web Shells
 [Shellinabox](https://shell.tomberek.info)
 
-[GateOne Shell](https://www.tomberek.info)
+[GateOne Shell](https://gateone.tomberek.info)
 
 [Codebox](https://codebox.tomberek.info)
 </div>

@@ -5,4 +5,4 @@ extra-deps: []
 resolver: lts-5.3
 nix:
     enable: true
-    packages: [zlib]
+    packages: [zlib,haskellPackages.ghcid]
