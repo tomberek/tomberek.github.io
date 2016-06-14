@@ -24,25 +24,13 @@
   <br>
   Category: <a href="/categories/RETE.html">RETE</a>
 </p>
-<div id="toc"><h2>Table of Contents</h2><ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#the-plan">The Plan</a><ul>
-<li><a href="#ops5">OPS5</a></li>
-<li><a href="#rules">Rules</a></li>
-<li><a href="#rete">RETE</a></li>
-<li><a href="#leaps">LEAPS</a></li>
-<li><a href="#another">Another?</a></li>
-<li><a href="#haskell-rules-framework">Haskell Rules Framework</a></li>
-<li><a href="#section">???</a></li>
-<li><a href="#profit">Profit</a></li>
-</ul></li>
-</ul></div>
 <h1 id="introduction">Introduction</h1>
 <p>This sequence will look at the implementation of the <a href="https://en.wikipedia.org/wiki/Rete_algorithm">RETE algorithm</a>. RETE is a pattern matching algorithm that is optimized by reusing partial matches. The motivation for this project is to bring optimized rule matching to Haskell.</p>
 <h1 id="the-plan">The Plan</h1>
 <p>(will be edited throughout project)</p>
 <h2 id="ops5">OPS5</h2>
 <p>Implement an <a href="http://repository.cmu.edu/cgi/viewcontent.cgi?article=3430&amp;context=compsci">OPS5</a> DSL. A good <a href="http://www.cs.gordon.edu/local/courses/cs323/OPS5/ops5.html">manual</a>. Currently learning and using <a href="https://hackage.haskell.org/package/compdata-0.10">compdata</a> - <a href="http://www.diku.dk/~paba/pubs/files/bahr11wgp-paper.pdf">paper</a>. Perhaps <a href="https://hackage.haskell.org/package/compdata-param">compdata-param</a> - <a href="http://arxiv.org/pdf/1202.2917.pdf">paper</a>.</p>
+<p><a href="http://www.drdobbs.com/architecture-and-design/the-rete-matching-algorithm/184405218">Another Summary</a></p>
 <p>Should we just use a <a href="http://bnfc.digitalgrammars.com/">BNF converter</a>? Almost <a href="https://gist.github.com/krodelin/9853a5bbfcac76592b2a">a BNF expression</a>.</p>
 <h2 id="rules">Rules</h2>
 <p>Use <a href="https://hackage.haskell.org/package/ho-rewriting-0.2">ho-rewriting</a> - <a href="http://www.cse.chalmers.se/~emax/documents/axelsson2015lightweight.pdf">paper</a> or <a href="http://takeichi.ipl-lab.org/yicho/">Yicho</a></p>
@@ -77,17 +65,6 @@ main <span class="fu">=</span> print <span class="st">&quot;hi&quot;</span></cod
   <br>
   Category: <a href="/categories/posts.html">posts</a>
 </p>
-<div id="toc"><h2>Table of Contents</h2><ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#ping-test">Ping Test</a><ul>
-<li><a href="#are-you-human">ARE YOU HUMAN?</a></li>
-<li><a href="#the-test">The test</a></li>
-<li><a href="#overall">Overall</a></li>
-</ul></li>
-<li><a href="#website-speed-test">Website Speed Test</a></li>
-<li><a href="#dns-tool">DNS Tool</a></li>
-<li><a href="#end-of-the-day">End of the day</a></li>
-</ul></div>
 <h1 id="introduction">Introduction</h1>
 <p>I enjoy collecting tools of the trade and finding useful ones. That is why I place often used ones on a quick to access <a href="/index.html">page</a>. While trying to raise awareness for <a href="https://www.dotcom-tools.com/">dotcom-tools</a>, they came across my homepage they saw a collection of similar tools and asked for consideration of their page.</p>
 <h1 id="ping-test">Ping Test</h1>
