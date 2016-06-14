@@ -106,7 +106,7 @@ pandocCompilerWithTOC = do
       toc    <- getMetadataField ident "toc"
       let writerSettings = case toc of
                                 Just "yes"  -> myWriterOptionsToc
-                                Nothing     -> myWriterOptions
+                                _           -> myWriterOptions
       pandocCompilerWith defaultHakyllReaderOptions writerSettings
 
 postCtxWithTags :: Tags -> Tags -> Context String
