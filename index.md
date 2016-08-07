@@ -64,8 +64,6 @@ This is used mainly for bookmarks, tools, links, and for a quick server as neede
 
 [hurl.it](https://www.hurl.it/)
 
-[inspectb.in](http://inspectb.in/)
-
 [Mashape](https://mashape.com/)
 </div>
 
