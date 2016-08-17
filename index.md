@@ -4,7 +4,7 @@ title: Home
 
 
 # Utility page
-This is used mainly for bookmarks, tools, links, and for a quick server as needed.</p>
+This is used mainly for bookmarks, tools, links, and for a quick server as needed.
 
 <div>
 <div>
