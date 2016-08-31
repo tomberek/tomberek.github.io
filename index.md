@@ -9,6 +9,8 @@ This is used mainly for bookmarks, tools, links, and for a quick server as neede
 <div>
 <div>
 ## Web Shells
+[Guacamole](https://tomberek.info/guac)
+
 [Cloud9](https://cloud9.tomberek.info)
 
 [Shellinabox](https://shell.tomberek.info)
@@ -55,6 +57,10 @@ This is used mainly for bookmarks, tools, links, and for a quick server as neede
 [Markdown Editor](https://jbt.github.io/markdown-editor)
 
 [JSON lint](http://jsonlint.com/)
+
+[Regex Creator](http://regex.inginf.units.it/)
+
+[Regex Explainer](https://regex101.com/)
 </div>
 <div>
 ## API

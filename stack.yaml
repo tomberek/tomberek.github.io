@@ -1,8 +1,9 @@
-flags: {}
-packages:
-- '.'
-extra-deps: []
-resolver: lts-5.3
+resolver: lts-6.7
+compiler-check: match-exact
 nix:
-    enable: true
-    packages: [zlib,haskellPackages.ghcid]
+  # --nix on the command-line to enable.
+  enable: true
+  # packages: [glpk, pcre, zlib ]
+  shell-file: shell.nix
+allow-newer: true
+

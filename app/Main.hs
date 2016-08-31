@@ -9,7 +9,7 @@ import Text.Pandoc.Options
 main :: IO ()
 main =
   hakyll $ do
-    match (fromList ["*.html","resume/*.html"]) $ do
+    match (fromList ["matrix.html","*.html","resume/*.html"]) $ do
       route idRoute
       compile $ getResourceBody >>= relativizeUrls
 

@@ -71,7 +71,7 @@ The results seems useful, but as a competitor, I have found [www.webpagetest.org
 
 # DNS Tool
 
-Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-monitor/dns-monitoring/](https://www.dotcom-monitor.com/server-monitor/dns-monitoring/)  and got a `Server Error in '/' Application.` at [https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp](https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp). Hm......
+Clicked on the "TRY IT NOW" button at [https://www.dotcom-monitor.com/server-monitor/dns-monitoring/](https://www.dotcom-monitor.com/server-monitor/dns-monitoring/)  and got a `Server Error in '/' Application.` at `https://userauth.dotcom-monitor.com/UserAuth/Account/FreeTrialSignUp`. Hm......
 
 <amp-img src="/images/2015-08-08/error.png" alt="Ping Test" width="870px" height="149px" sizes="(min-width:800px) 60vw, 90vw"/>
 
