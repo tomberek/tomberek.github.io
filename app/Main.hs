@@ -126,7 +126,6 @@ myWriterOptionsToc = myWriterOptions {
       writerTableOfContents = True
     , writerTOCDepth = 2
     , writerTemplate = "$if(toc)$<div id=\"toc\"><h2>Table of Contents</h2>$toc$</div>$endif$\n$body$"
-    , writerStandalone = True
     }
 
 feedContext :: Context String
