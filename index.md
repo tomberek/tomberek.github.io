@@ -56,6 +56,8 @@ This is used mainly for bookmarks, tools, links, and for a quick server as neede
 ## Editing
 [Markdeep Editor](markdeep.html)
 
+[Plnkr.co](https://embed.plnkr.co/)
+
 [HTML Editor](http://mrdoob.com/projects/htmleditor/)
 
 [Markdown Editor](https://jbt.github.io/markdown-editor)

@@ -24,6 +24,20 @@ img, canvas {
 window.markdeepOptions = {mode: 'script'};</script>
 <script src="https://casual-effects.com/markdeep/markdeep.min.js"></script>
 <script>
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
 function getCaret(el) {
     if (el.selectionStart) {
         return el.selectionStart;
@@ -62,6 +76,7 @@ function setCaretPosition(elem, caretPos) {
     }
 }
 function init(){
+window.editbox.f.png.addEventListener("click",function(){updateImage();});
 window.editbox.f.ta.addEventListener("keydown", function(e) {
     if(e.keyCode == 8) {
       if (e.shiftKey){return true;}
@@ -92,29 +107,37 @@ window.editbox.f.ta.addEventListener("keypress", function(e) {
     }
     return true;
 });
-var s = document.createElement('style');
-window.dynamicframe.document.head.appendChild(s);
-s.outerHTML = markdeep.stylesheet();
 
-res = window.dynamicframe.document.getElementById('result');
-inp = window.editbox.f.ta.value;
-// res.innerHTML = window.markdeep.format(inp,false);
-res.innerHTML = inp;
-updateImage();
+window.editbox.f.ta.addEventListener("keyup", debounce(function(e) {
+var fr = window.document.getElementsByTagName('frameset')[0]
+var d_el = window.document.createElement('frame');
+fr.appendChild(d_el);
+var d = d_el.contentDocument;
+d.open();d.write(window.editbox.document.f.ta.value + '<script>window.history.pushState({},"","' + window.editbox.window.location.search + '");window.markdeepOptions = {mode: "' + window.editbox.f.mode.value + '",tocStyle:"'+window.editbox.f.tocStyle.value+'",detectMath:'+window.editbox.f.detectMath.value+',showURLs:'+window.editbox.f.showURLs.value+'};window.alreadyProcessedMarkdeep=false;<\/script><!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="https://casual-effects.com/markdeep/0.19/markdeep.js"><\/script><script>window.alreadyProcessedMarkdeep&&(document.body.style.visibility="visible")<\/script>');d.close();
 
-window.editbox.f.ta.addEventListener("keyup", function(e) {
-res = window.dynamicframe.document.getElementById('result');
-inp = e.target.value;
-res.innerHTML = inp;
-// res.innerHTML = window.markdeep.format(inp,false);
-updateImage();
-});
+d.body.style.visibility="hidden";
+var func = function(){
+    var g = fr;
+    if(d.readyState == "complete" && d.body.style.visibility=="visible"){
+        while (g.children[2] && g.children[2].contentDocument.readyState =="complete")
+            g.removeChild(g.children[1])
+        d_el.setAttribute('id',"dynamicframe");
+        // updateImage();
+    } else {
+        setTimeout(func,50);
+    }
+}
+func();
+
+},100));
+
+window.editbox.f.ta.dispatchEvent(new Event("keyup"));
 
 }
 </script>
 <script>
 function getMatchedCSSRules(element) {
-  var i, len, matching = [], sheets = document.styleSheets;
+  var i, len, matching = [], sheets = element.ownerDocument.styleSheets;
 
   function loopRules(rules) {
     var i, len, rule;
@@ -142,40 +165,47 @@ function getMatchedCSSRules(element) {
 var domURL = self.URL || self.webkitURL || self;
 function updateImage(){
 
-    var s = window.dynamicframe.document.querySelector("svg")
-    var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'style');
-    var n = document.createTextNode('path , polygon { display: block; '+
-    'text-align: center; stroke-linecap: round; stroke-width: 2px;'+
-    'break-inside: avoid; stroke: rgb(0, 0, 0); fill: rgb(0, 0, 0); }'+
-    'text {'+
-    'font-family: Menlo,Consolas, monospace; font-size: 13.1px;}');
-    newElement.appendChild(n);
-    if (!s) {
-        window.dynamicframe.document.querySelector('#png-container').innerHTML = '';
-        return;
+    var ss = window.document.getElementById("dynamicframe").contentDocument.querySelectorAll("svg")
+    for(var i=0;i<ss.length;i++){
+        var s = ss[i];
+        var sh=s.getAttribute('height');
+        var sw=s.getAttribute('width');
+        s.setAttribute('viewBox',"0 0 " + sw + " " + sh);
+        s.removeAttribute('height')
+        s.removeAttribute('width')
+        var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'style');
+        var n = document.createTextNode('path , polygon { display: block; '+
+        'text-align: center; stroke-linecap: round; stroke-width: 2px;'+
+        'break-inside: avoid; stroke: rgb(0, 0, 0); fill: rgb(0, 0, 0); }'+
+        'text {'+
+        'font-family: stroke:none; Menlo,Consolas, monospace; font-size: 13.1px;}');
+        newElement.appendChild(n);
+        if (!s) {
+            return;
+        }
+        s.prepend(newElement);
+        var svgText = s.outerHTML;
+        var d = window.document.getElementById("dynamicframe").contentDocument;
+        var myCanvas = d.createElement("canvas");
+        d.body.appendChild(myCanvas);
+        myCanvas.setAttribute('height',s.getAttribute('height'));
+        myCanvas.setAttribute('width',s.getAttribute('width'));
+        myCanvas.setAttribute('hidden',true);
+        var ctxt = myCanvas.getContext("2d");
+        ctxt.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+        drawInlineSVG(s,myCanvas,ctxt, svgText, function(el,myCanvas) {
+            var png = myCanvas.toDataURL("image/png");
+            var myPng = d.createElement('a');
+            myPng.setAttribute('href',png);
+            el.parentElement.appendChild(myPng);
+            myPng.appendChild(el);
+            domURL.revokeObjectURL(png);
+        });
     }
-
-    s.prepend(newElement);
-    var svgText = s.outerHTML;
-    var myCanvas = window.dynamicframe.document.getElementById("canvas");
-    myCanvas.setAttribute('height',s.getAttribute('height'));
-    myCanvas.setAttribute('width',s.getAttribute('width'));
-    var ctxt = myCanvas.getContext("2d");
-    ctxt.clearRect(0, 0, myCanvas.width, myCanvas.height);
-
-    drawInlineSVG(ctxt, svgText, function() {
-        var png = myCanvas.toDataURL("image/png");
-        window.dynamicframe.document.getElementById('png-container').innerHTML = '<img src="'+png+'"/>';
-        domURL.revokeObjectURL(png);
-
-        var d = window.dynamicframe.document;
-        var doc = d.documentElement.outerHTML;
-        console.log(doc);
-        d.open();d.write(doc);d.close();
-    });
 }
 
-function drawInlineSVG(ctx, rawSVG, callback) {
+function drawInlineSVG(el,myCanvas, ctx, rawSVG, callback) {
 
     var svg = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"}),
         domURL = self.URL || self.webkitURL || self,
@@ -184,7 +214,7 @@ function drawInlineSVG(ctx, rawSVG, callback) {
     img.onload = function () {
         ctx.drawImage(this, 0, 0);
         domURL.revokeObjectURL(url);
-        callback(this);
+        callback(el,myCanvas);
     };
     img.src = url;
 }
@@ -194,7 +224,7 @@ function drawInlineSVG(ctx, rawSVG, callback) {
 <frameset resizable="yes" cols="45%,*" onload="init();">
   <!-- about:blank confuses opera, so use javascript: URLs instead -->
   <frame name="editbox" src="markdeep-editor.html">
-  <frame name="dynamicframe" src="markdeep-viewer.html">
+  <frame id="dynamicframe" src="markdeep-viewer.html">
 </frameset>
 
 </html>

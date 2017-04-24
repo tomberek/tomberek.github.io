@@ -4,6 +4,12 @@
 .expand { width: 100%; height: 100%; }
 .close { border: none; margin: 0px; padding: 0px; }
 html,body,textarea{  font-family: Menlo,Consolas, monospace; }
+form > label {
+    font-size : 0.5em;
+}
+textarea.close {
+    padding-left:5px;
+}
 textarea::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -29,7 +35,42 @@ textarea::-webkit-scrollbar-track {
 </style>
 </head>
 <body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">
-<form class="expand close" name="f">
+<script>function triggerRebuild(){
+document.f.ta.dispatchEvent(new Event('keyup'));
+}
+</script>
+<form class="expand close" name="f" onsubmit="return false;">
+    <select name="url" onchange="window.history.pushState({},'','?'+this.value);triggerRebuild()">
+        <option></option>
+        <option>noformat</option>
+        <option>export</option>
+    </select>
+    <label>mode</label>
+    <select name="mode" onchange="triggerRebuild();">
+        <option>markdeep</option>
+        <option>script</option>
+        <option>html</option>
+        <option>doxygen</option>
+    </select>
+    <label>tocStyle</label>
+    <select name="tocStyle" onchange="triggerRebuild();">
+        <option>none</option>
+        <option>auto</option>
+        <option>short</option>
+        <option>medium</option>
+        <option>long</option>
+    </select>
+    <label>detectMath</label>
+    <select name="detectMath" onchange="triggerRebuild();">
+        <option>false</option>
+        <option>true</option>
+    </select>
+    <label>showURLs</label>
+    <select name="showURLs" onchange="triggerRebuild();">
+        <option>false</option>
+        <option>true</option>
+    </select>
+    <button name="png">PNG</button>
 <textarea class="expand close" style="background: #def;" name="ta" wrap="hard" spellcheck="false">
 ***************************************************************************************
 *                                  .-.                          .-----.               *
