@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Markdeep Editor</title>
+    <!--
+Mostly adopted from: http://htmledit.squarefree.com/
+
+Also used
+    <a href="https://casual-effects.com/markdeep/">Markdeep</a>-
+    <a href="https://www.tildefriends.net/~cory/sharedwiki#test">Co-op Markdeep</a>-
+    <a href="http://asciiflow.com/">ASIIFlow</a>
+    -->
+<style>
+textarea {
+    font-family: monospace;
+    height: 260px;
+}
+img, canvas {
+    width: 600px;
+    height: 600px;
+}
+</style>
+<script>
+window.markdeepOptions = {mode: 'script'};</script>
+<script src="https://casual-effects.com/markdeep/markdeep.min.js"></script>
+<script>
+function getCaret(el) {
+    if (el.selectionStart) {
+        return el.selectionStart;
+    } else if (document.selection) {
+        el.focus();
+
+        var r = document.selection.createRange();
+        if (r == null) {
+            return 0;
+        }
+
+        var re = el.createTextRange(),
+            rc = re.duplicate();
+        re.moveToBookmark(r.getBookmark());
+        rc.setEndPoint('EndToStart', re);
+
+        return rc.text.length;
+    }
+    return 0;
+}
+
+function setCaretPosition(elem, caretPos) {
+    if (elem != null) {
+        if (elem.createTextRange) {
+            var range = elem.createTextRange();
+            range.move('character', caretPos);
+            range.select();
+        }
+        else {
+            if (elem.selectionStart) {
+                elem.focus();
+                elem.setSelectionRange(caretPos, caretPos);
+            }
+            else elem.focus();
+        }
+    }
+}
+function init(){
+window.editbox.f.ta.addEventListener("keydown", function(e) {
+    if(e.keyCode == 8) {
+      if (e.shiftKey){return true;}
+      var text = this.value;
+      var caret = getCaret(this);
+      if (!caret || !text.substring(caret).split('\n')[0].endsWith('*')) return true;
+      var output = text.substring(0, caret-1);
+      this.value = output + ' ' + text.substring(caret);
+      setCaretPosition(this, caret-1);
+      //e.stopImmediatePropagation();
+      e.preventDefault();
+      return false;
+    }
+    return true;
+});
+window.editbox.f.ta.addEventListener("keypress", function(e) {
+    var key = String.fromCharCode(e.which || e.charCode || e.keyCode);
+    if (key == " " && e.shiftKey){return true;}
+    if (/[\s\S]/.test(key)) {
+        var text = this.value;
+        var caret = getCaret(this);
+        if (!caret || !text.substring(caret).split('\n')[0].endsWith('*')) return true;
+        var output = text.substring(0, caret);
+        this.value = output + key + text.substring(caret + 1);
+        setCaretPosition(this, caret + 1);
+        e.preventDefault();
+        return false;
+    }
+    return true;
+});
+var s = document.createElement('style');
+window.dynamicframe.document.head.appendChild(s);
+s.outerHTML = markdeep.stylesheet();
+
+res = window.dynamicframe.document.getElementById('result');
+inp = window.editbox.f.ta.value;
+// res.innerHTML = window.markdeep.format(inp,false);
+res.innerHTML = inp;
+updateImage();
+
+window.editbox.f.ta.addEventListener("keyup", function(e) {
+res = window.dynamicframe.document.getElementById('result');
+inp = e.target.value;
+res.innerHTML = inp;
+// res.innerHTML = window.markdeep.format(inp,false);
+updateImage();
+});
+
+}
+</script>
+<script>
+function getMatchedCSSRules(element) {
+  var i, len, matching = [], sheets = document.styleSheets;
+
+  function loopRules(rules) {
+    var i, len, rule;
+
+    for (i = 0, len = rules.length; i < len; i++) {
+      rule = rules[i];
+      if (rule instanceof CSSMediaRule) {
+        if (window.matchMedia(rule.conditionText).matches) {
+          loopRules(rule.cssRules);
+        }
+      } else if (rule instanceof CSSStyleRule) {
+        if (element.matches(rule.selectorText)) {
+          matching.push(rule);
+        }
+      }
+    }
+  };
+
+  for (i = 0, len = sheets.length; i < len; i++) {
+    loopRules(sheets[i].cssRules);
+  }
+
+  return matching;
+}
+var domURL = self.URL || self.webkitURL || self;
+function updateImage(){
+
+    var s = window.dynamicframe.document.querySelector("svg")
+    var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'style');
+    var n = document.createTextNode('path , polygon { display: block; '+
+    'text-align: center; stroke-linecap: round; stroke-width: 2px;'+
+    'break-inside: avoid; stroke: rgb(0, 0, 0); fill: rgb(0, 0, 0); }'+
+    'text {'+
+    'font-family: Menlo,Consolas, monospace; font-size: 13.1px;}');
+    newElement.appendChild(n);
+    if (!s) {
+        window.dynamicframe.document.querySelector('#png-container').innerHTML = '';
+        return;
+    }
+
+    s.prepend(newElement);
+    var svgText = s.outerHTML;
+    var myCanvas = window.dynamicframe.document.getElementById("canvas");
+    myCanvas.setAttribute('height',s.getAttribute('height'));
+    myCanvas.setAttribute('width',s.getAttribute('width'));
+    var ctxt = myCanvas.getContext("2d");
+    ctxt.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+    drawInlineSVG(ctxt, svgText, function() {
+        var png = myCanvas.toDataURL("image/png");
+        window.dynamicframe.document.getElementById('png-container').innerHTML = '<img src="'+png+'"/>';
+        domURL.revokeObjectURL(png);
+
+        var d = window.dynamicframe.document;
+        var doc = d.documentElement.outerHTML;
+        console.log(doc);
+        d.open();d.write(doc);d.close();
+    });
+}
+
+function drawInlineSVG(ctx, rawSVG, callback) {
+
+    var svg = new Blob([rawSVG], {type:"image/svg+xml;charset=utf-8"}),
+        domURL = self.URL || self.webkitURL || self,
+        url = domURL.createObjectURL(svg),
+        img = new Image;
+    img.onload = function () {
+        ctx.drawImage(this, 0, 0);
+        domURL.revokeObjectURL(url);
+        callback(this);
+    };
+    img.src = url;
+}
+
+</script>
+</head>
+<frameset resizable="yes" cols="45%,*" onload="init();">
+  <!-- about:blank confuses opera, so use javascript: URLs instead -->
+  <frame name="editbox" src="markdeep-editor.html">
+  <frame name="dynamicframe" src="markdeep-viewer.html">
+</frameset>
+
+</html>

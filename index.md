@@ -54,6 +54,8 @@ This is used mainly for bookmarks, tools, links, and for a quick server as neede
 
 <div>
 ## Editing
+[Markdeep Editor](markdeep.html)
+
 [HTML Editor](http://mrdoob.com/projects/htmleditor/)
 
 [Markdown Editor](https://jbt.github.io/markdown-editor)
