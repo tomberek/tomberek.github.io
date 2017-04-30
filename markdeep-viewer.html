@@ -1,6 +1,55 @@
 <canvas hidden id='canvas' width='800' height='800'></canvas>
 <div id='result'></div>
 <div id='png-container'></div>
+
+<script>
+
+var arr=document.currentScript.parentElement.querySelectorAll('.bullet');
+for (var i=0;i<arr.length;i++){
+arr[i].innerHTML=arr[i].innerHTML
+    .replace(/^(\s*)(\&gt\;|\&lt\;|[\!,\@,\#,\%]*)(\[x\]|\[ \]|\(x\)|\( \)|-) /gm,function(match,p1,p2,p3){
+switch(p3){
+  case '[x]': 
+    return p1+ '+ <label>' + p2 + '</label><input type="checkbox" class="box" checked></input>';
+  case '[ ]': 
+    return p1+ '+ <label>' + p2 + '</label><input type="checkbox" class="box"></input>';
+  case '(x)': 
+    return p1+ '+ <label>' + p2 + '</label><input type="checkbox" class="circle" checked></input>';
+  case '( )': 
+    return p1+ '+ <label>' + p2 + '</label><input type="checkbox" class="circle"></input>';  
+  case '-':
+   return p1 + '+ -<label>' + p2 + '</label>';
+  default:
+    return match;
+}
+})   
+;
+}
+</script>
+
+<style>
+.bullet > ul {position:relative;}
+.bullet li {position:static;}
+.bullet label {
+  font-family: Menlo;
+  background:#fff;
+  position: absolute;
+  left:0em;
+}
+.bullet > ul {padding-left:20px;}
+.bullet input[type=checkbox] {
+        width: 1em;
+	height: 1em;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        border: #666 thin;
+        border-style:solid;
+	-webkit-appearance: none;
+;}
+.bullet input[type=checkbox].circle {border-radius: 100px;}
+.bullet input[type=checkbox]:checked {background: #70a0ff;}
+.bullet li {list-style-type:none;}
+</style>
 <script>
 window.history.pushState({},"", "/?");
 window.markdeepOptions = {mode: 'markdeep'};
