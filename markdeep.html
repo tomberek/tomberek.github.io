@@ -114,12 +114,11 @@ var d_el = window.document.createElement('frame');
 fr.appendChild(d_el);
 var d = d_el.contentDocument;
 var bullet = '<script>var arr=document.currentScript.parentElement.querySelectorAll(\'.bullet\'); for (var i=0;i<arr.length;i++){ arr[i].innerHTML=arr[i].innerHTML.replace(/^(\\s*)(\\&gt\;|\\&lt\;|[\!,\@,\#,\%]*)(\\[x\\]|\\[ \\]|\\(x\\)|\\( \\)|-) /gm,function(match,p1,p2,p3){ switch(p3){ case "[x]": return p1+ "+ <label>" + p2 + "<\/label><input type=\'checkbox\' class=\'box\' checked><\/input>"; case "[ ]": return p1+ "+ <label>" + p2 + "<\/label><input type=\'checkbox\' class=\'box\'><\/input>"; case "(x)": return p1+ "+ <label>" + p2 + "<\/label><input type=\'checkbox\' class=\'circle\' checked><\/input>"; case "( )": return p1+ "+ <label>" + p2 + "<\/label><input type=\'checkbox\' class=\'circle\'><\/input>";  case "-": return p1 + "+ -<label>" + p2 + "<\/label>"; default: return match; } })   ; } <\/script> <style> .bullet > ul {position:relative;} .bullet li {position:static;} .bullet label { font-family: Menlo; background:#fff; position: absolute; left:0em; } .bullet > ul {padding-left:20px;} .bullet input[type=checkbox] { width: 1em; height: 1em; margin-top: 0em; margin-bottom: 0em; border: #666 thin; border-style:solid; -webkit-appearance: none; ;} .bullet input[type=checkbox].circle {border-radius: 100px;} .bullet input[type=checkbox]:checked {background: #70a0ff;} .bullet li {list-style-type:none;} <\/style> ';
-d.open();d.write(window.editbox.document.f.ta.value + bullet + '<script>window.history.pushState({},"","' + window.editbox.window.location.search + '");window.markdeepOptions = {mode: "' + window.editbox.f.mode.value + '",tocStyle:"'+window.editbox.f.tocStyle.value+'",detectMath:'+window.editbox.f.detectMath.value+',showURLs:'+window.editbox.f.showURLs.value+'};window.alreadyProcessedMarkdeep=false;<\/script><!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="https://tomberek.info/js/markdeep.min.js"><\/script><script>window.alreadyProcessedMarkdeep&&(document.body.style.visibility="visible")<\/script>');d.close();
+d.open();d.write( (window.editbox.document.f.ta.value || '- Try lists\n- In a div with class="bullet"\n') + bullet + '<script>window.history.pushState({},"","' + window.editbox.window.location.search + '");window.markdeepOptions = {mode: "' + window.editbox.f.mode.value + '",tocStyle:"'+window.editbox.f.tocStyle.value+'",detectMath:'+window.editbox.f.detectMath.value+',showURLs:'+window.editbox.f.showURLs.value+'};window.alreadyProcessedMarkdeep=false;<\/script><!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="https://tomberek.info/js/markdeep.min.js"><\/script><script>window.alreadyProcessedMarkdeep&&(document.body.style.visibility="visible")<\/script>');d.close();
 
-// d.body.style.visibility="hidden";
 var func = function(){
     var g = fr;
-    if(d.readyState == "complete" ){ // && d.body.style.visibility=="visible"){
+    if(d.readyState == "complete" ){
         var scrollY=0;
         while (g.children[2] && g.children[2].contentDocument.readyState =="complete") {
             scrollY=g.children[1].contentWindow.pageYOffset;
@@ -203,6 +202,7 @@ function updateImage(){
             var png = myCanvas.toDataURL("image/png");
             var myPng = d.createElement('a');
             myPng.setAttribute('href',png);
+            myPng.setAttribute('download','markdeep.png');
             el.parentElement.appendChild(myPng);
             myPng.appendChild(el);
             domURL.revokeObjectURL(png);

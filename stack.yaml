@@ -1,4 +1,4 @@
-resolver: lts-6.7
+resolver: lts-10.0
 compiler-check: match-exact
 nix:
   # --nix on the command-line to enable.

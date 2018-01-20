@@ -117,15 +117,13 @@ postCtxWithTags tags categories = tagsField "tags" tags
 myWriterOptions :: WriterOptions
 myWriterOptions = defaultHakyllWriterOptions {
       writerReferenceLinks = True
-    , writerHtml5 = True
-    , writerHighlight = True
     }
 
 myWriterOptionsToc :: WriterOptions
 myWriterOptionsToc = myWriterOptions {
       writerTableOfContents = True
     , writerTOCDepth = 2
-    , writerTemplate = "$if(toc)$<div id=\"toc\"><h2>Table of Contents</h2>$toc$</div>$endif$\n$body$"
+    , writerTemplate = Just "$if(toc)$<div id=\"toc\"><h2>Table of Contents</h2>$toc$</div>$endif$\n$body$"
     }
 
 feedContext :: Context String

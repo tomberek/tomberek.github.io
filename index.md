@@ -4,20 +4,13 @@ title: Home
 
 
 # Utility page
-This is used mainly for bookmarks, tools, links, and for a quick server as needed.
+This is used mainly to learn and for bookmarks, tools, links, and for a quick server as needed.
 
 <div>
 <div>
 ## Web Shells
 [Guacamole](https://tomberek.info/guac)
 
-[Cloud9](https://cloud9.tomberek.info)
-
-[Shellinabox](https://shell.tomberek.info)
-
-[GateOne Shell](https://gateone.tomberek.info)
-
-[Codebox](https://codebox.tomberek.info)
 </div>
 <div>
 ## Resume
