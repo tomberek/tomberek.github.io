@@ -2,33 +2,24 @@
 title: Home
 ---
 
-
-# Utility page
+# Utilities
 This is used mainly to learn and for bookmarks, tools, links, and for a quick server as needed.
 
-<div>
-<div>
+# Links
 ## Web Shells
+
 [Guacamole](https://tomberek.info/guac)
 
-</div>
-<div>
 ## Resume
+
 [Resume in HTML5/CSS](/resume/index.html)
 
 [Resume in PDF](/resume/BereknyeiResume.pdf)
 
 [Resume in 2 pages](/resume/BereknyeiResume2pages.pdf)
 
-</div>
-<div>
-### [Matrix](/matrix.html)
-</div>
-</div>
+## [Matrix](/matrix.html)
 
-
-<div>
-<div>
 ## Network Tools
 [viewDNS](http://viewdns.info/)
 
@@ -43,9 +34,7 @@ This is used mainly to learn and for bookmarks, tools, links, and for a quick se
 [FreeDNS](http://freedns.afraid.org)
 
 [web-sniffer](http://web-sniffer.net)
-</div>
 
-<div>
 ## Editing
 [Markdeep Editor](markdeep.html)
 
@@ -60,22 +49,15 @@ This is used mainly to learn and for bookmarks, tools, links, and for a quick se
 [Regex Creator](http://regex.inginf.units.it/)
 
 [Regex Explainer](https://regex101.com/)
-</div>
-<div>
+
 ## API
 [swagger.io](https://swagger.io)
 
 [apigee](https://apigee.com/console/others)
 
-[hurl.it](https://www.hurl.it/)
-
 [Mashape](https://mashape.com/)
-</div>
 
-<div>
 ## Downloaded
 [fidler](http://www.telerik.com/fiddler)
 
 [Nix/NixOS](https://nixos.org)
-</div>
-</div>

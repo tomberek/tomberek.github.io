@@ -4,7 +4,7 @@ title: About
 
 Welcome! My name is Thomas Bereknyei.
 
-I write [code](https://schoolofhaskell.com/user/tomberek) and contribute to [Open Source](https://github.com/tomberek).
+I write code and contribute to [Open Source](https://github.com/tomberek).
 
 * PGP fingerprint: `87184F1CA00EAF3A38E95DF8E4DD675ECF1DC4FC`
 * BTC address: `1MThmPG5TvwuMw4DN3qeSa8MWth9sd6tVg`

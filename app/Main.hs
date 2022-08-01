@@ -27,7 +27,7 @@ main =
 
     match (fromList ["about.md", "contact.md", "index.md"]) $ do
       route (setExtension "html")
-      compile $ pandocCompiler
+      compile $ pandocCompilerWith defaultHakyllReaderOptions myWriterOptions
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
 
@@ -116,14 +116,15 @@ postCtxWithTags tags categories = tagsField "tags" tags
 
 myWriterOptions :: WriterOptions
 myWriterOptions = defaultHakyllWriterOptions {
-      writerReferenceLinks = True
+      writerReferenceLinks = True,
+      writerSectionDivs = True,
+      writerNumberSections = True
     }
 
 myWriterOptionsToc :: WriterOptions
 myWriterOptionsToc = myWriterOptions {
       writerTableOfContents = True
     , writerTOCDepth = 2
-    , writerTemplate = Just "$if(toc)$<div id=\"toc\"><h2>Table of Contents</h2>$toc$</div>$endif$\n$body$"
     }
 
 feedContext :: Context String

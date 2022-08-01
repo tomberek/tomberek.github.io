@@ -1,9 +1,7 @@
-resolver: lts-11.2
-compiler-check: match-exact
+resolver: lts-17.9
 nix:
-  # --nix on the command-line to enable.
   enable: true
-  # packages: [glpk, pcre, zlib ]
-  shell-file: shell.nix
+  packages: [glpk, pcre, zlib ]
+extra-deps:
+  - hakyll-4.14.0.0@sha256:28aab547aa94202d486328aa4bbcd02ecbefc4e5d42dfa15e8137b731a4f5d55,9059
 allow-newer: true
-

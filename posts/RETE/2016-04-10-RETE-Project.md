@@ -13,7 +13,7 @@ This sequence will look at the implementation of the [RETE algorithm](https://en
 (will be edited throughout project)
 
 ## OPS5
-Implement an [OPS5](http://repository.cmu.edu/cgi/viewcontent.cgi?article=3430&context=compsci) DSL. A good [manual](http://www.cs.gordon.edu/local/courses/cs323/OPS5/ops5.html). Currently learning and using [compdata](https://hackage.haskell.org/package/compdata-0.10) - [paper](http://www.diku.dk/~paba/pubs/files/bahr11wgp-paper.pdf). Perhaps [compdata-param](https://hackage.haskell.org/package/compdata-param) - [paper](http://arxiv.org/pdf/1202.2917.pdf).
+Implement an OPS5 DSL. A good [manual](http://www.cs.gordon.edu/local/courses/cs323/OPS5/ops5.html). Currently learning and using [compdata](https://hackage.haskell.org/package/compdata-0.10) - [paper](http://www.diku.dk/~paba/pubs/files/bahr11wgp-paper.pdf). Perhaps [compdata-param](https://hackage.haskell.org/package/compdata-param) - [paper](http://arxiv.org/pdf/1202.2917.pdf).
 
 [Another Summary](http://www.drdobbs.com/architecture-and-design/the-rete-matching-algorithm/184405218)
 
